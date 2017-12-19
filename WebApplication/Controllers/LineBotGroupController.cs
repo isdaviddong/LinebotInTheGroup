@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace WebApplication.Controllers
 {
-    public class LineBotGroupController : ApiController
+    public class LineBotGroupController : LineWebHookControllerBase
     {
         [HttpPost]
         public IHttpActionResult POST()
@@ -18,11 +18,8 @@ namespace WebApplication.Controllers
 
             try
             {
-                //取得 http Post RawData(should be JSON)
-                string postData = Request.Content.ReadAsStringAsync().Result;
-                //剖析JSON
-                var ReceivedMessage = isRock.LineBot.Utility.Parsing(postData);
-                var item = ReceivedMessage.events.FirstOrDefault();
+
+                var item = this.ReceivedMessage.events.FirstOrDefault();
                 string Message = "";
 
                 switch (item.type)

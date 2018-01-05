@@ -39,7 +39,7 @@ namespace WebApplication.Controllers
                             if (item.source.type.ToLower() == "room")
                                 isRock.LineBot.Utility.LeaveRoom(item.source.roomId, ChannelAccessToken);
                             if (item.source.type.ToLower() == "group")
-                                isRock.LineBot.Utility.LeaveGroup(item.source.roomId, ChannelAccessToken);
+                                isRock.LineBot.Utility.LeaveGroup(item.source.groupId, ChannelAccessToken);
 
                             break;
                         }
